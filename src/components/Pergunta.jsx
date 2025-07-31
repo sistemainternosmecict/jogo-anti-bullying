@@ -16,17 +16,17 @@ const PerguntaContainer = styled.div`
 `;
 
 const PerguntaLiteral = styled.h1`
-  font-size: 2em;
+  font-size: 1em;
   font-family: sans-serif;
 `;
 
 const BtnOpcao = styled.button`
   display: block;
-  margin: 10px auto;
+  margin: 5px auto;
   border: none;
   width: 100%;
   cursor: pointer;
-  font-size: 1.5em;
+  font-size: 1em;
   padding: 8px;
   border-radius: 4px;
   

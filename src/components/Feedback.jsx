@@ -6,8 +6,7 @@ const CustomFeedback = styled.p`
   font-weight: bold;
   background-color: white;
   padding: 32px;
-  font-size: 2.4em;
-  letter-spacing: .15em;
+  font-size: 1em;
   border-radius: 8px;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
   user-select: none;

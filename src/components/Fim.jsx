@@ -31,7 +31,7 @@ const CustomContainer = styled.div`
 `;
 
 const CustomTitle = styled.h1`
-  font-size: 3.5em;
+  font-size: 2em;
   font-family: sans-serif;
   background-color: ${COR_BASICA_4};
   color: ${COR_BASICA};
@@ -47,7 +47,7 @@ const CustomRankingContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 500px;
+  max-width: 240px;
   border: solid 3px ${COR_BASICA_2};
   border-radius: 8px;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));

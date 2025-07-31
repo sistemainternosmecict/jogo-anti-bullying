@@ -11,6 +11,9 @@ const FundoJogo = styled.div`
   display: grid;
   place-content: center;
   background-image: url('fundo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 function embaralhar(array) {
