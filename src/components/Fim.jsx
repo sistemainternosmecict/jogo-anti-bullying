@@ -1,4 +1,6 @@
 import styled, { keyframes } from "styled-components";
+import { useState } from "react";
+import Certificado from "./Certificado";
 
 const COR_BASICA = "#d18137";
 const COR_BASICA_2 = "#ddd";
@@ -86,7 +88,7 @@ const CustomList = styled.ul`
 `;
 
 const CustomButton = styled.button`
-  margin: 32px;
+  margin: 16px;
   width: 100%;
   max-width: 500px;
   height: 50px;
@@ -103,23 +105,69 @@ const CustomButton = styled.button`
   }
 `;
 
-export default function Fim({ nome, pontos, ranking, onVoltar }) {
-  return (
-    <CustomContainer>
-      <CustomTitle>Fim da Rodada, {nome}!</CustomTitle>
-      <CustomPoints>Sua pontuação: {pontos} pontos</CustomPoints>
+const CertificadoButton = styled.button`
+  margin: 16px;
+  width: 100%;
+  max-width: 500px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  border: solid 3px #45a049;
+  font-size: 1.2em;
+  transition: all .2s ease-in-out;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
 
-      <CustomRankingContainer>
-        <CustomRankingTitle>Ranking</CustomRankingTitle>
-        <CustomList>
-          {ranking.map((item, i) => (
-            <li key={i}><span>{i + 1} - {item.nome} </span>
-            .............................
-            <span>{item.pontos} pontos</span></li>
-          ))}
-        </CustomList>
-      </CustomRankingContainer>
-      <CustomButton onClick={onVoltar}>Voltar ao Menu</CustomButton>
-    </CustomContainer>
+  &:hover{
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+`;
+
+export default function Fim({ nome, pontos, ranking, onVoltar }) {
+  const [mostrarCertificado, setMostrarCertificado] = useState(false);
+  const pontuacaoAlta = pontos >= 30; // Considera pontuação alta se >= 30 pontos
+
+  return (
+    <>
+      <CustomContainer>
+        <CustomTitle>Fim da Rodada, {nome}!</CustomTitle>
+        <CustomPoints>Sua pontuação: {pontos} pontos</CustomPoints>
+
+        {pontuacaoAlta && (
+          <CustomPoints style={{ backgroundColor: '#4CAF50', color: 'white', border: '3px solid #45a049' }}>
+            🎉 Parabéns! Você completou o jogo com sucesso! 🎉
+          </CustomPoints>
+        )}
+
+        <CustomRankingContainer>
+          <CustomRankingTitle>Ranking</CustomRankingTitle>
+          <CustomList>
+            {ranking.map((item, i) => (
+              <li key={i}><span>{i + 1} - {item.nome} </span>
+              .............................
+              <span>{item.pontos} pontos</span></li>
+            ))}
+          </CustomList>
+        </CustomRankingContainer>
+        
+        {pontuacaoAlta && (
+          <CertificadoButton onClick={() => setMostrarCertificado(true)}>
+            🏆 Ver Certificado de Conclusão
+          </CertificadoButton>
+        )}
+        
+        <CustomButton onClick={onVoltar}>Voltar ao Menu</CustomButton>
+      </CustomContainer>
+
+      {mostrarCertificado && (
+        <Certificado 
+          nome={nome} 
+          onFechar={() => setMostrarCertificado(false)} 
+        />
+      )}
+    </>
   );
 }
