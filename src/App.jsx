@@ -11,9 +11,9 @@ const Aplicacao = styled.div`
 `;
 
 export default function App() {
-  const [fase, setFase] = useState('menu');
-  const [nome, setNome] = useState('');
-  const [pontos, setPontos] = useState(0);
+  const [fase, setFase] = useState('fim');
+  const [nome, setNome] = useState('thyez');
+  const [pontos, setPontos] = useState(1000);
   const [ranking, setRanking] = useState([]);
 
   const iniciarJogo = (nomeJogador) => {

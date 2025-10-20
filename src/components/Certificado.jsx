@@ -6,7 +6,7 @@ const ContainerCertificado = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("/diploma.jpeg");
+  background-image: url("/diploma.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
