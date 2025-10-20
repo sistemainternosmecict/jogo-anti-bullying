@@ -10,7 +10,7 @@ const FundoJogo = styled.div`
   height: 100%;
   display: grid;
   place-content: center;
-  background-image: url('fundo.png');
+  background-image: url('fundo_2.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
