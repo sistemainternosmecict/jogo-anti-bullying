@@ -11,10 +11,10 @@ const Aplicacao = styled.div`
 `;
 
 export default function App() {
-  const [fase, setFase] = useState('menu');
+  const [fase, setFase] = useState('jogo');
   const [nome, setNome] = useState('');
-  const [pontos, setPontos] = useState(0);
-  const [ranking, setRanking] = useState([]);
+  const [pontos, setPontos] = useState(5);
+  const [ranking, setRanking] = useState([{nome: "thyez", pontos: pontos}]);
 
   const iniciarJogo = (nomeJogador) => {
     setNome(nomeJogador);
@@ -25,6 +25,7 @@ export default function App() {
   const finalizarJogo = (pontuacaoFinal) => {
     setPontos(pontuacaoFinal);
     const novoRanking = [...ranking, { nome, pontos: pontuacaoFinal }].sort((a, b) => b.pontos - a.pontos).slice(0, 5);
+    
     setRanking(novoRanking);
     setFase('fim');
   };

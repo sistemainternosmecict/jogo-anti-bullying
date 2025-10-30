@@ -80,13 +80,13 @@ const Botao = styled.button`
 
 const BotaoJogar = styled(Botao)`
   &:hover {
-    background-color: green;
+    background-color: ${COR_BASICA};
   }
 `;
 
 const BotaoRanking = styled(Botao)`
   &:hover {
-    background-color: orange;
+    background-color: ${COR_BASICA};
   }
 `;
 
@@ -111,14 +111,14 @@ const CustomStrip = styled.div`
   height: 60px;
   overflow: hidden;
   position: relative;
-
+  
   img {
     position: relative;
     width: 100%;
     max-width: 250px;
     object-fit: contain;
     object-position: center;
-    // top: -80%;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
   }
 `;
 
@@ -127,7 +127,7 @@ export default function Menu({ onStart, onVerRanking }) {
 
   return (
     <MenuFundo>
-      <Titulo src="/logo_anti_bullying.png" alt="logo" />
+      <Titulo src="/logo_2.png" alt="logo" />
       <CampoNome
         type="text"
         placeholder="Digite seu nome"
