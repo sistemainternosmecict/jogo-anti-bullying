@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const COR_BASICA = "#d18137";
+const COR_BASICA = "#2a7951ff";
 const COR_BASICA_2 = "#ddd";
 const COR_BASICA_3 = "rgba(209, 129, 55, 0.2)";
 
@@ -13,7 +13,7 @@ const MenuFundo = styled.div`
   background-color: ${COR_BASICA};
   text-align: center;
   min-height: 100vh;
-  background-image: url('fundo.png');
+  background-image: url('fundo_3.png');
   background-size: cover;
   background-position: center;
   user-select: none;
@@ -21,40 +21,45 @@ const MenuFundo = styled.div`
   box-sizing: border-box;
 `;
 
-const Titulo = styled.h1`
-  background-color: ${COR_BASICA_3};
-  backdrop-filter: blur(16px);
-  color: white;
-  font-family: sans-serif;
-  width: fit-content;
-  padding: 1em;
-  border-radius: 0.5em;
-  filter: drop-shadow(0 2px 4px black);
-  font-size: 1.3rem;
-  border: solid 3px ${COR_BASICA};
-  margin-bottom: 2rem;
+const flutuar = keyframes`
+  0%{ filter: drop-shadow(0 0 2px rgba(53, 31, 22, 0.2)); transform: translateY(0);}
+  50%{ filter: drop-shadow(0 4px 4px rgba(53, 31, 22, 0.4));  transform: translateY(-5px);}
+  100%{ filter: drop-shadow(0 0 2px rgba(53, 31, 22, 0.2));  transform: translateY(0);}
+`;
+
+const Titulo = styled.img`
+  width: 100%;
+  max-width: 300px;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  animation: ${flutuar} 2s linear infinite;
 `;
 
 const pulsar = keyframes`
-  0%{background-color:${COR_BASICA_2};}
-  50%{background-color:#e9a070;}
-  100%{background-color:${COR_BASICA_2};}
+  0%{background-color:${COR_BASICA_2};--placeholder-color: ${COR_BASICA};}
+  50%{background-color:${COR_BASICA}; --placeholder-color: white;}
+  100%{background-color:${COR_BASICA_2};--placeholder-color: ${COR_BASICA};}
 `;
 
 const CampoNome = styled.input`
   color: black;
-  border: solid 1px black;
+  border: solid 3px ${COR_BASICA};
   text-align: center;
   border-radius: 0.5em;
   padding: 0.8em;
   width: 100%;
   max-width: 240px;
   font-size: 1.1em;
-  animation: ${pulsar} 2s linear infinite;
+  animation: ${pulsar} 5s linear infinite;
   filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+  --placeholder-color: ${COR_BASICA};
 
   &::placeholder {
-    color: #e06615;
+    color: var(--placeholder-color);
   }
 
   &:focus {
@@ -81,21 +86,21 @@ const Botao = styled.button`
 
 const BotaoJogar = styled(Botao)`
   &:hover {
-    background-color: green;
+    background-color: ${COR_BASICA};
   }
 `;
 
 const BotaoRanking = styled(Botao)`
   &:hover {
-    background-color: orange;
+    background-color: ${COR_BASICA};
   }
 `;
 
 const CustomFooter = styled.footer`
   display: grid;
   place-content: center;
-  border-top: solid 3px #d18137;
-  background-color: #3b2204;
+  border-top: solid 3px #0d442fff;
+  background-color: #2f7960ff;
   width: 100vw;
   height: 120px;
   margin-top: auto;
@@ -112,23 +117,48 @@ const CustomStrip = styled.div`
   height: 60px;
   overflow: hidden;
   position: relative;
-
+  
   img {
     position: relative;
     width: 100%;
     max-width: 250px;
     object-fit: contain;
     object-position: center;
-    top: -80%;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
   }
 `;
 
-export default function Menu({ onStart, onVerRanking }) {
+const Config = styled.div`
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+
+  p{}
+
+  select{
+    padding: 16px;
+    cursor: pointer;
+  }
+`;
+
+const SecureImage = styled.img`
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+`;
+
+export default function Menu({ onStart, onVerRanking, opcoes, setOpcoes }) {
   const [nome, setNome] = useState('');
+  const [configOpened, setConfigOpened] = useState(false)
 
   return (
     <MenuFundo>
-      <Titulo>Jogo Anti-Bullying</Titulo>
+      <Titulo src="/logo_2.png" alt="logo" />
+      {(!configOpened) ? <>
       <CampoNome
         type="text"
         placeholder="Digite seu nome"
@@ -137,9 +167,22 @@ export default function Menu({ onStart, onVerRanking }) {
       />
       <BotaoJogar onClick={() => onStart(nome)}>Jogar</BotaoJogar>
       <BotaoRanking onClick={onVerRanking}>Ver Ranking</BotaoRanking>
-      <CustomFooter>
+      
+      <BotaoRanking onClick={()=>setConfigOpened(true)} >Configurações</BotaoRanking>
+      
+       </>: <>
+        <Config className="config">
+          <p style={{color: COR_BASICA, fontSize: 20, fontFamily:"sans"}}>Configurações</p>
+          <select style={{width: "100%", color: COR_BASICA, borderRadius: 8, border: `solid 3px ${COR_BASICA}`}} defaultValue={opcoes.categoria} onChange={e=>setOpcoes({...opcoes, categoria: e.target.value})} name="categoria" id="categoria">
+            <option value="anosIniciais">Anos iniciais - 1º ao 5º ano</option>
+            <option value="anosFinais">Anos finais - 6º ao 9º ano</option>
+          </select>
+          <BotaoRanking onClick={()=>setConfigOpened(false)}>Voltar</BotaoRanking>
+        </Config>
+       </>}
+       <CustomFooter>
         <CustomStrip>
-          <img src="./logo-edu.png" alt="Logo da secretaria de educação" />
+          <SecureImage src="./sub_logo.svg" alt="Logo da secretaria de educação" />
         </CustomStrip>
       </CustomFooter>
     </MenuFundo>

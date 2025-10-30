@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import { useState } from "react";
 import Certificado from "./Certificado";
 
-const COR_BASICA = "#d18137";
+const COR_BASICA = "#2a7951ff";
 const COR_BASICA_2 = "#ddd";
 const COR_BASICA_3 = "rgba(209, 129, 55, 0.2)";
 const COR_BASICA_4 = "rgba(255, 255, 255, 0.8)";
@@ -24,7 +24,7 @@ const CustomContainer = styled.div`
   flex-direction: column;
   align-items: center;
   user-select: none;
-  background-image: url("./pessoas.png");
+  background-image: url("./fundo_3.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -32,15 +32,8 @@ const CustomContainer = styled.div`
   object-fit: cover;
 `;
 
-const CustomTitle = styled.h1`
-  font-size: 2em;
-  font-family: sans-serif;
-  background-color: ${COR_BASICA_4};
-  color: ${COR_BASICA};
-  padding: 8px;
-  border-radius: 8px;
-  border: solid 3px ${COR_BASICA};
-  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+const CustomTitle = styled.img`
+  width: 400px;
 `;
 
 const CustomRankingContainer = styled.div`
@@ -133,7 +126,7 @@ export default function Fim({ nome, pontos, ranking, onVoltar }) {
   return (
     <>
       <CustomContainer>
-        <CustomTitle>Fim da Rodada, {nome}!</CustomTitle>
+        <CustomTitle src="/fim_rodada.png" alt="fim da rodada" />
         <CustomPoints>Sua pontuação: {pontos} pontos</CustomPoints>
 
         {pontuacaoAlta && (
