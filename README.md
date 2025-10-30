@@ -1,4 +1,4 @@
-# 🦟 Jogo Anti-Bullying – Jogo Educativo
+# Jogo Anti-Bullying – Jogo Educativo
 
 **Jogo Anti-Bullying** é um jogo interativo e educativo desenvolvido em com o objetivo de conscientizar crianças sobre o bullying, de forma divertida e envolvente.  
 O jogo foi criado a pedido da **Subsecretaria de Saúde de Saquarema**.
