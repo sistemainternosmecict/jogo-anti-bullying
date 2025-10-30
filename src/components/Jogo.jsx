@@ -36,16 +36,16 @@ export default function Jogo({ nome, onFim }) {
     setPerguntas(selecionadas);
   }, []);
 
-  const responder = (tipo) => {
-    if (tipo === 'correta_moral') setPontos(p => p + 10);
+  function responder(tipo, licao){
+    if (tipo === 'correta') setPontos(p => p + 10);
     else if (tipo === 'neutra') setPontos(p => p + 2);
 
-    setFeedback(tipo);
+    setFeedback({tipo: tipo, licao: licao});
     setTimeout(() => {
       setFeedback(null);
       if (indice < 4) setIndice(i => i + 1);
-      else onFim(pontos + (tipo === 'correta_moral' ? 10 : tipo === 'neutra' ? 2 : 0));
-    }, 3000);
+      else onFim(pontos + (tipo === 'correta' ? 10 : tipo === 'neutra' ? 2 : 0));
+    }, 5000);
   };
 
   return (
@@ -53,8 +53,8 @@ export default function Jogo({ nome, onFim }) {
       {perguntas.length > 0 && (
         <>
           {(!(feedback)) ?
-          <Pergunta pergunta={perguntas[indice]} onResponder={responder} />
-          : <Feedback tipo={feedback} />}
+          <Pergunta pergunta={perguntas[indice]} responder={responder} />
+          : <Feedback tipo={feedback.tipo} licao={feedback.licao}/>}
         </>
       )}
     </FundoJogo>

@@ -11,16 +11,14 @@ const CustomFeedback = styled.p`
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
   user-select: none;
   `;
-export default function Feedback({ tipo }) {
-  let mensagem = '', cor = '';
-  if (tipo === 'correta_moral') {
-    mensagem = 'Ótima escolha! Isso ajuda a criar um ambiente melhor.';
+export default function Feedback({ tipo, licao }) {
+  const mensagem = licao
+  let cor = null;
+  if (tipo === 'correta') {
     cor = 'green';
   } else if (tipo === 'neutra') {
-    mensagem = 'Escolha neutra. Você poderia ajudar mais!';
     cor = 'orange';
   } else {
-    mensagem = 'Essa não foi uma boa escolha. Tente ajudar!';
     cor = 'red';
   }
   return <CustomFeedback cor={cor}>{mensagem}</CustomFeedback>;

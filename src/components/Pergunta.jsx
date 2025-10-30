@@ -36,12 +36,12 @@ const BtnOpcao = styled.button`
   }
 `;
 
-export default function Pergunta({ pergunta, onResponder }) {
+export default function Pergunta({ pergunta, responder }) {
   return (
     <PerguntaContainer>
       <PerguntaLiteral>{pergunta.pergunta}</PerguntaLiteral>
       {pergunta.opcoes.map((opcao, i) => (
-        <BtnOpcao key={i} onClick={() => onResponder(opcao.tipo)} >
+        <BtnOpcao key={i} onClick={() => responder(opcao.tipo, opcao.licao)} >
           {opcao.texto}
         </BtnOpcao>
       ))}

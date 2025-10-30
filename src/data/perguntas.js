@@ -1,22 +1,61 @@
 export const perguntas = [
-  { pergunta: "Você viu um colega sendo zoado por causa da roupa. O que faz?", opcoes: [{ texto: "Rir junto", tipo: "errada" }, { texto: "Fingir que não viu", tipo: "neutra" }, { texto: "Defender o colega", tipo: "correta_moral" }] },
-  { pergunta: "Um colega está isolado. Qual atitude você toma?", opcoes: [{ texto: "Chama para brincar", tipo: "correta_moral" }, { texto: "Ignora", tipo: "neutra" }, { texto: "Zoa ele também", tipo: "errada" }] },
-  { pergunta: "Você vê uma mensagem maldosa no grupo da turma. O que faz?", opcoes: [{ texto: "Encaminha para outros", tipo: "errada" }, { texto: "Fala com um adulto", tipo: "correta_moral" }, { texto: "Sai do grupo", tipo: "neutra" }] },
-  { pergunta: "Um colega derruba o lanche e todos riem. Você...", opcoes: [{ texto: "Ajuda a limpar", tipo: "correta_moral" }, { texto: "Rir também", tipo: "errada" }, { texto: "Fica quieto", tipo: "neutra" }] },
-  { pergunta: "Você escuta alguém xingando um colega. Qual sua ação?", opcoes: [{ texto: "Ignora", tipo: "neutra" }, { texto: "Conta para um professor", tipo: "correta_moral" }, { texto: "Dá risada", tipo: "errada" }] },
-  { pergunta: "Você percebe que um amigo está triste. O que faz?", opcoes: [{ texto: "Conversa com ele", tipo: "correta_moral" }, { texto: "Deixa pra lá", tipo: "neutra" }, { texto: "Chama de chorão", tipo: "errada" }] },
-  { pergunta: "Na hora da educação física, um colega é sempre o último escolhido. Você...", opcoes: [{ texto: "Escolhe ele primeiro", tipo: "correta_moral" }, { texto: "Deixa os outros escolherem", tipo: "neutra" }, { texto: "Ri disso", tipo: "errada" }] },
-  { pergunta: "Um amigo novo chega na escola. Você...", opcoes: [{ texto: "Apresenta os lugares", tipo: "correta_moral" }, { texto: "Ignora", tipo: "neutra" }, { texto: "Faz piada com ele", tipo: "errada" }] },
-  { pergunta: "Alguém faz um apelido maldoso para outro aluno. Você...", opcoes: [{ texto: "Usa o apelido também", tipo: "errada" }, { texto: "Corrige quem falou", tipo: "correta_moral" }, { texto: "Sai de perto", tipo: "neutra" }] },
-  { pergunta: "Você tem um brinquedo legal e um colega pede para brincar. Você...", opcoes: [{ texto: "Empresta", tipo: "correta_moral" }, { texto: "Finge que não ouviu", tipo: "neutra" }, { texto: "Zomba dele", tipo: "errada" }] },
-  { pergunta: "Você vê um amigo sendo excluído de um grupo. Você...", opcoes: [{ texto: "Chama ele para brincar", tipo: "correta_moral" }, { texto: "Não interfere", tipo: "neutra" }, { texto: "Faz piada", tipo: "errada" }] },
-  { pergunta: "Uma amiga chora na escola. Você...", opcoes: [{ texto: "Consola ela", tipo: "correta_moral" }, { texto: "Ignora", tipo: "neutra" }, { texto: "Filma para mostrar depois", tipo: "errada" }] },
-  { pergunta: "Um colega tem dificuldade em uma matéria. Você...", opcoes: [{ texto: "Ajuda com as tarefas", tipo: "correta_moral" }, { texto: "Finge que não viu", tipo: "neutra" }, { texto: "Zoa ele", tipo: "errada" }] },
-  { pergunta: "Você ouve um boato maldoso sobre alguém. Você...", opcoes: [{ texto: "Espalha também", tipo: "errada" }, { texto: "Conversa com a pessoa", tipo: "correta_moral" }, { texto: "Não fala nada", tipo: "neutra" }] },
-  { pergunta: "Você está com um lanche a mais e vê alguém sem. Você...", opcoes: [{ texto: "Divide o lanche", tipo: "correta_moral" }, { texto: "Come escondido", tipo: "neutra" }, { texto: "Mostra para provocar", tipo: "errada" }] },
-  { pergunta: "Um colega tropeça e cai. Você...", opcoes: [{ texto: "Ajuda a levantar", tipo: "correta_moral" }, { texto: "Finge que não viu", tipo: "neutra" }, { texto: "Ri dele", tipo: "errada" }] },
-  { pergunta: "Você descobre que alguém está sendo ameaçado. Você...", opcoes: [{ texto: "Conta para um adulto", tipo: "correta_moral" }, { texto: "Finge que não sabe", tipo: "neutra" }, { texto: "Filma e compartilha", tipo: "errada" }] },
-  { pergunta: "Você vê um colega com dificuldade de se locomover. Você...", opcoes: [{ texto: "Ajuda ele", tipo: "correta_moral" }, { texto: "Ignora", tipo: "neutra" }, { texto: "Faz piada", tipo: "errada" }] },
-  { pergunta: "Você ouve um apelido ofensivo sendo usado. Você...", opcoes: [{ texto: "Pede respeito", tipo: "correta_moral" }, { texto: "Não se envolve", tipo: "neutra" }, { texto: "Usa também", tipo: "errada" }] },
-  { pergunta: "Alguém novo na escola está tímido. Você...", opcoes: [{ texto: "Se apresenta e conversa", tipo: "correta_moral" }, { texto: "Finge que não viu", tipo: "neutra" }, { texto: "Chama de esquisito", tipo: "errada" }] }
-];
+  { pergunta: "O que é bullying?", opcoes: [
+    { texto: "Quando alguém briga de vez em quando com um amigo.", tipo: "neutra", licao: "Às vezes brigamos, mas isso não é bullying. O bullying é quando alguém machuca ou maltrata repetidamente." },
+    { texto: "Quando uma pessoa é sempre maltratada ou zombada por outra.", tipo: "certa", licao: "Muito bem! Isso é bullying, e precisamos combatê-lo juntos!" },
+    { texto: "Quando alguém conta um segredo do amigo.", tipo: "errada", licao: "Não é legal contar segredo, mas isso não é bullying. Bullying acontece quando alguém sofre provocações ou agressões várias vezes. Vamos melhorar nosso entendimento!" }
+  ]},
+
+  { pergunta: "O que devemos fazer se virmos alguém sofrendo bullying?", opcoes: [
+    { texto: "Ficar quieto para não se meter.", tipo: "errada", licao: "Errado. Ficar em silêncio permite que o bullying continue. Devemos sempre buscar ajuda!" },
+    { texto: "Contar para um adulto ou professor.", tipo: "certa", licao: "Parabéns! Contar para um adulto é uma forma de proteger a pessoa e ajudar a resolver o problema." },
+    { texto: "Rir junto com os outros.", tipo: "neutra", licao: "Mesmo que pareça brincadeira, rir pode machucar. Em vez disso, seja um amigo e ajude quem está sofrendo." }
+  ]},
+
+  { pergunta: "Como podemos ajudar um colega que está sendo zoado?", opcoes: [
+    { texto: "Fingir que não viu.", tipo: "errada", licao: "Ignorar não resolve. Precisamos agir com coragem e empatia!" },
+    { texto: "Conversar com ele e chamar um adulto.", tipo: "certa", licao: "Muito bem! Apoiar o colega e procurar ajuda é a atitude certa!" },
+    { texto: "Dar risada com os outros para ele não perceber.", tipo: "neutra", licao: "Mesmo que pareça brincadeira, pode machucar. Em vez disso, seja gentil e solidário." }
+  ]},
+
+  { pergunta: "Fazer piada com a aparência de alguém é...", opcoes: [
+    { texto: "Uma brincadeira boba.", tipo: "neutra", licao: "Pode parecer brincadeira, mas pode machucar. Precisamos pensar no sentimento do outro." },
+    { texto: "Engraçado se a pessoa rir também.", tipo: "errada", licao: "Cuidado! Nem sempre a pessoa demonstra que está triste. Vamos ser respeitosos sempre." },
+    { texto: "Bullying e pode ferir os sentimentos.", tipo: "certa", licao: "Isso mesmo! Respeito sempre com o outro, do jeitinho que ele é!" }
+  ]},
+
+  { pergunta: "Quem pratica bullying é...", opcoes: [
+    { texto: "Uma pessoa que precisa aprender a respeitar os outros.", tipo: "certa", licao: "Isso aí! Todos podem mudar e aprender a ser melhores." },
+    { texto: "Alguém popular e divertido.", tipo: "errada", licao: "Errado. Ser popular não significa maltratar os outros. Ser divertido é incluir, não excluir." },
+    { texto: "Alguém que está apenas brincando.", tipo: "neutra", licao: "Pode parecer brincadeira, mas se machuca o outro, não é legal." }
+  ]},
+
+  { pergunta: "Quando você vê alguém chorando por ter sido ofendido, você deve...", opcoes: [
+    { texto: "Fazer de conta que não viu.", tipo: "errada", licao: "Errado. Devemos ser amigos e ajudar sempre!" },
+    { texto: "Tentar fazer ele rir e avisar um adulto.", tipo: "certa", licao: "Muito bem! Ser gentil faz a diferença, e os adultos podem ajudar a resolver!" },
+    { texto: "Dizer para ele esquecer e continuar com a vida.", tipo: "neutra", licao: "Às vezes a dor é maior do que parece. Vamos acolher e buscar ajuda!" }
+  ]},
+
+  { pergunta: "Zoar alguém porque ele é diferente é...", opcoes: [
+    { texto: "Legal, todo mundo faz.", tipo: "errada", licao: "Errado! Ninguém é igual, e isso é o que torna o mundo incrível. Vamos respeitar!" },
+    { texto: "Falta de respeito com o outro.", tipo: "certa", licao: "Muito bem! Respeitar as diferenças é sinal de sabedoria e carinho!" },
+    { texto: "Uma brincadeira comum.", tipo: "neutra", licao: "Pode parecer comum, mas pode ferir. Pense se você gostaria de ouvir isso." }
+  ]},
+
+  { pergunta: "Se alguém faz bullying com você, o que deve fazer?", opcoes: [
+    { texto: "Contar para alguém de confiança.", tipo: "certa", licao: "Parabéns! Falar com um adulto é sempre a melhor opção! Você não está sozinho!" },
+    { texto: "Devolver com ofensa também.", tipo: "errada", licao: "Errado! Brigar não resolve. O melhor é buscar ajuda e manter a calma." },
+    { texto: "Se afastar e guardar tudo para si.", tipo: "neutra", licao: "Guardar a dor não ajuda. Compartilhe com alguém em quem confie." }
+  ]},
+
+  { pergunta: "Tratar todos com respeito e gentileza é...", opcoes: [
+    { texto: "Coisa de gente fraca.", tipo: "errada", licao: "Errado! Ser gentil é uma grande força. Mostra que você se importa com os outros." },
+    { texto: "Uma forma de fazer o mundo melhor.", tipo: "certa", licao: "Muito bem! Gentileza gera gentileza. Você faz a diferença!" },
+    { texto: "Legal só com os amigos.", tipo: "neutra", licao: "É importante ser legal com todos, mesmo com quem não conhecemos bem." }
+  ]},
+
+  { pergunta: "Apontar para alguém rindo dele é...", opcoes: [
+    { texto: "Uma forma divertida de brincar.", tipo: "errada", licao: "Errado! Isso pode ser muito humilhante. Vamos respeitar as pessoas!" },
+    { texto: "Uma atitude desnecessária.", tipo: "neutra", licao: "Pode parecer bobo, mas pode machucar. É melhor ser gentil!" },
+    { texto: "Falta de respeito e pode ser bullying.", tipo: "certa", licao: "Muito bem! Devemos tratar todos com respeito sempre!" }
+  ]}
+]

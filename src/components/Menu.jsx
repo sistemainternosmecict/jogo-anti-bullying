@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
-const COR_BASICA = "#d18137";
+const COR_BASICA = "#2a7951ff";
 const COR_BASICA_2 = "#ddd";
 const COR_BASICA_3 = "rgba(209, 129, 55, 0.2)";
 
@@ -13,7 +13,7 @@ const MenuFundo = styled.div`
   background-color: ${COR_BASICA};
   text-align: center;
   min-height: 100vh;
-  background-image: url('fundo.png');
+  background-image: url('fundo_3.png');
   background-size: cover;
   background-position: center;
   user-select: none;
@@ -34,25 +34,26 @@ const Titulo = styled.img`
 `;
 
 const pulsar = keyframes`
-  0%{background-color:${COR_BASICA_2};}
-  50%{background-color:#e9a070;}
-  100%{background-color:${COR_BASICA_2};}
+  0%{background-color:${COR_BASICA_2};--placeholder-color: ${COR_BASICA};}
+  50%{background-color:${COR_BASICA}; --placeholder-color: white;}
+  100%{background-color:${COR_BASICA_2};--placeholder-color: ${COR_BASICA};}
 `;
 
 const CampoNome = styled.input`
   color: black;
-  border: solid 1px black;
+  border: solid 3px ${COR_BASICA};
   text-align: center;
   border-radius: 0.5em;
   padding: 0.8em;
   width: 100%;
   max-width: 240px;
   font-size: 1.1em;
-  animation: ${pulsar} 2s linear infinite;
+  animation: ${pulsar} 5s linear infinite;
   filter: drop-shadow(0 2px 2px rgba(0,0,0,0.5));
+  --placeholder-color: ${COR_BASICA};
 
   &::placeholder {
-    color: #e06615;
+    color: var(--placeholder-color);
   }
 
   &:focus {
@@ -92,8 +93,8 @@ const BotaoRanking = styled(Botao)`
 const CustomFooter = styled.footer`
   display: grid;
   place-content: center;
-  border-top: solid 3px #d18137;
-  background-color: #3b2204;
+  border-top: solid 3px #0d442fff;
+  background-color: #2f7960ff;
   width: 100vw;
   height: 120px;
   margin-top: auto;
@@ -117,7 +118,7 @@ const CustomStrip = styled.div`
     max-width: 250px;
     object-fit: contain;
     object-position: center;
-    top: -80%;
+    // top: -80%;
   }
 `;
 
@@ -137,7 +138,7 @@ export default function Menu({ onStart, onVerRanking }) {
       <BotaoRanking onClick={onVerRanking}>Ver Ranking</BotaoRanking>
       <CustomFooter>
         <CustomStrip>
-          <img src="./logo-edu.png" alt="Logo da secretaria de educação" />
+          <img src="./sub_logo.svg" alt="Logo da secretaria de educação" />
         </CustomStrip>
       </CustomFooter>
     </MenuFundo>
