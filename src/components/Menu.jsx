@@ -21,18 +21,16 @@ const MenuFundo = styled.div`
   box-sizing: border-box;
 `;
 
-const Titulo = styled.h1`
-  background-color: ${COR_BASICA_3};
-  backdrop-filter: blur(16px);
-  color: white;
-  font-family: sans-serif;
-  width: fit-content;
-  padding: 1em;
-  border-radius: 0.5em;
-  filter: drop-shadow(0 2px 4px black);
-  font-size: 1.3rem;
-  border: solid 3px ${COR_BASICA};
-  margin-bottom: 2rem;
+const flutuar = keyframes`
+  0%{ filter: drop-shadow(0 0 2px rgba(53, 31, 22, 0.2)); transform: translateY(0);}
+  50%{ filter: drop-shadow(0 4px 4px rgba(53, 31, 22, 0.4));  transform: translateY(-5px);}
+  100%{ filter: drop-shadow(0 0 2px rgba(53, 31, 22, 0.2));  transform: translateY(0);}
+`;
+
+const Titulo = styled.img`
+  width: 100%;
+  max-width: 300px;
+  animation: ${flutuar} 2s linear infinite;
 `;
 
 const pulsar = keyframes`
@@ -128,7 +126,7 @@ export default function Menu({ onStart, onVerRanking }) {
 
   return (
     <MenuFundo>
-      <Titulo>Jogo Anti-Bullying</Titulo>
+      <Titulo src="/logo_anti_bullying.png" alt="logo" />
       <CampoNome
         type="text"
         placeholder="Digite seu nome"
