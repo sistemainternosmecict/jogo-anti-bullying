@@ -30,6 +30,12 @@ const flutuar = keyframes`
 const Titulo = styled.img`
   width: 100%;
   max-width: 300px;
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   animation: ${flutuar} 2s linear infinite;
 `;
 
@@ -122,12 +128,37 @@ const CustomStrip = styled.div`
   }
 `;
 
-export default function Menu({ onStart, onVerRanking }) {
+const Config = styled.div`
+  background-color: white;
+  padding: 16px;
+  border-radius: 8px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+
+  p{}
+
+  select{
+    padding: 16px;
+    cursor: pointer;
+  }
+`;
+
+const SecureImage = styled.img`
+  user-drag: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+`;
+
+export default function Menu({ onStart, onVerRanking, opcoes, setOpcoes }) {
   const [nome, setNome] = useState('');
+  const [configOpened, setConfigOpened] = useState(false)
 
   return (
     <MenuFundo>
       <Titulo src="/logo_2.png" alt="logo" />
+      {(!configOpened) ? <>
       <CampoNome
         type="text"
         placeholder="Digite seu nome"
@@ -136,9 +167,22 @@ export default function Menu({ onStart, onVerRanking }) {
       />
       <BotaoJogar onClick={() => onStart(nome)}>Jogar</BotaoJogar>
       <BotaoRanking onClick={onVerRanking}>Ver Ranking</BotaoRanking>
-      <CustomFooter>
+      
+      <BotaoRanking onClick={()=>setConfigOpened(true)} >Configurações</BotaoRanking>
+      
+       </>: <>
+        <Config className="config">
+          <p style={{color: COR_BASICA, fontSize: 20, fontFamily:"sans"}}>Configurações</p>
+          <select style={{width: "100%", color: COR_BASICA, borderRadius: 8, border: `solid 3px ${COR_BASICA}`}} defaultValue={opcoes.categoria} onChange={e=>setOpcoes({...opcoes, categoria: e.target.value})} name="categoria" id="categoria">
+            <option value="anosIniciais">Anos iniciais - 1º ao 5º ano</option>
+            <option value="anosFinais">Anos finais - 6º ao 9º ano</option>
+          </select>
+          <BotaoRanking onClick={()=>setConfigOpened(false)}>Voltar</BotaoRanking>
+        </Config>
+       </>}
+       <CustomFooter>
         <CustomStrip>
-          <img src="./sub_logo.svg" alt="Logo da secretaria de educação" />
+          <SecureImage src="./sub_logo.svg" alt="Logo da secretaria de educação" />
         </CustomStrip>
       </CustomFooter>
     </MenuFundo>

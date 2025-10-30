@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { perguntas as todasPerguntas } from '../data/perguntas';
+
 import Pergunta from './Pergunta';
 import Feedback from './Feedback';
 import styled from 'styled-components'
@@ -16,24 +16,15 @@ const FundoJogo = styled.div`
   background-position: center;
 `;
 
-function embaralhar(array) {
-  const copia = [...array];
-  for (let i = copia.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copia[i], copia[j]] = [copia[j], copia[i]];
-  }
-  return copia;
-}
-
-export default function Jogo({ nome, onFim }) {
-  const [perguntas, setPerguntas] = useState([]);
+export default function Jogo({ nome, onFim, perguntas }) {
+  const [perguntasProntas, setPerguntasProntas] = useState([]);
   const [indice, setIndice] = useState(0);
   const [pontos, setPontos] = useState(0);
   const [feedback, setFeedback] = useState(null);
 
   useEffect(() => {
-    const selecionadas = embaralhar(todasPerguntas).slice(0, 5);
-    setPerguntas(selecionadas);
+    const selecionadas = perguntas.slice(0, 5);
+    setPerguntasProntas(selecionadas);
   }, []);
 
   function responder(tipo, licao){
@@ -50,10 +41,10 @@ export default function Jogo({ nome, onFim }) {
 
   return (
     <FundoJogo>
-      {perguntas.length > 0 && (
+      {perguntasProntas.length > 0 && (
         <>
           {(!(feedback)) ?
-          <Pergunta pergunta={perguntas[indice]} responder={responder} />
+          <Pergunta pergunta={perguntasProntas[indice]} responder={responder} />
           : <Feedback tipo={feedback.tipo} licao={feedback.licao}/>}
         </>
       )}
