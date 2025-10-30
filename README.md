@@ -10,7 +10,7 @@ O jogo foi criado a pedido da **Subsecretaria de Saúde de Saquarema**.
 O jogador assume o papel de um **agente anti-bullying**, respondendo perguntas relacionadas à prevenção e combate ao bullying.  
 Cada resposta correta soma pontos, e o jogador pode competir por uma posição no **ranking dos melhores jogadores**!
 
-# [JOGAR](https://jogo-anti-bullying.netlify.app/)
+# [JOGAR](https://jogo-antibullying.netlify.app/)
 ---
 
 ## ✨ Funcionalidades
