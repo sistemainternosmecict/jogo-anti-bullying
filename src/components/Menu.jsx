@@ -121,7 +121,7 @@ const CustomStrip = styled.div`
   img {
     position: relative;
     width: 100%;
-    max-width: 250px;
+    max-width: 400px;
     object-fit: contain;
     object-position: center;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
@@ -182,7 +182,7 @@ export default function Menu({ onStart, onVerRanking, opcoes, setOpcoes }) {
        </>}
        <CustomFooter>
         <CustomStrip>
-          <SecureImage src="./sub_logo.svg" alt="Logo da secretaria de educação" />
+          <SecureImage src="./logo_edu_saude.svg" alt="Logo da secretaria de educação" />
         </CustomStrip>
       </CustomFooter>
     </MenuFundo>
