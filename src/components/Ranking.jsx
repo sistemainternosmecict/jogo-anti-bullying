@@ -52,16 +52,47 @@ const CustomButton = styled.button`
   }
 `;
 
+const Tabela = styled.table`
+  width: 100%;
+  borderCollapse: collapse;
+  border: solid 1px ${COR_BASICA};
+  margin: 0;
+  padding: 0;
+
+  thead tr{
+    background-color: ${COR_BASICA};
+    color: ${COR_BASICA_2};
+  }
+
+  td{
+    padding: 4px;
+  }
+`;
+
 export default function Ranking({ ranking, onVoltar }) {
   return (
     <CustomRankingContainer>
       <CustomContainer>
         <h2 style={{fontSize: 40, fontFamily: "sans", color:COR_BASICA}}>Ranking</h2>
-        <ul>
-          {ranking.map((item, i) => (
-            <li key={i}>{i + 1}. {item.nome}: {item.pontos}</li>
-          ))}
-        </ul>
+        
+        <Tabela>
+          <thead>
+            <tr>
+              <td>Nome</td>
+              <td>---</td>
+              <td>Pontos</td>
+            </tr>
+          </thead>
+          <tbody>
+            {ranking.map((item, i) => (
+              <tr key={i}>
+                <td>{item.nome}</td>
+                <td>---</td>
+                <td>{item.pontos}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Tabela>
         <CustomButton onClick={onVoltar}>Voltar</CustomButton>
 
       </CustomContainer>

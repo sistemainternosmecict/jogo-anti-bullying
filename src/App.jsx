@@ -24,8 +24,9 @@ export default function App() {
   const [fase, setFase] = useState('menu');
   const [nome, setNome] = useState('');
   const [pontos, setPontos] = useState(0);
-  const [ranking, setRanking] = useState([]);
+  const [ranking, setRanking] = useState(JSON.parse(localStorage.getItem("ranking") || []));
   const perguntas = useRef([])
+  console.log(ranking)
 
   const [opcoes, setOpcoes] = useState({
     categoria: "anosIniciais"
@@ -41,6 +42,7 @@ export default function App() {
     setPontos(pontuacaoFinal);
     const novoRanking = [...ranking, { nome, pontos: pontuacaoFinal }].sort((a, b) => b.pontos - a.pontos).slice(0, 5);
     setRanking(novoRanking);
+    localStorage.setItem("ranking", JSON.stringify(novoRanking))
     setFase('fim');
   };
 
@@ -53,7 +55,6 @@ export default function App() {
       perguntas.current = embaralhar(anosFinais)
     }
     
-    console.log(perguntas)
   }, [opcoes])
 
   return (
