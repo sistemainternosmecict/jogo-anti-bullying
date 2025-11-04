@@ -24,9 +24,16 @@ export default function App() {
   const [fase, setFase] = useState('menu');
   const [nome, setNome] = useState('');
   const [pontos, setPontos] = useState(0);
-  const [ranking, setRanking] = useState(JSON.parse(localStorage.getItem("ranking") || []));
   const perguntas = useRef([])
-  console.log(ranking)
+  const [ranking, setRanking] = useState(() => {
+    try{
+      const storedRanking = localStorage.getItem("ranking")
+      return storedRanking ? JSON.parse(storedRanking) : []
+    } catch(e){
+      console.error("Erro com o localStorage:", e);
+      return [];
+    }
+  });
 
   const [opcoes, setOpcoes] = useState({
     categoria: "anosIniciais"
