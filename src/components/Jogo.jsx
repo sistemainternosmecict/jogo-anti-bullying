@@ -28,14 +28,15 @@ export default function Jogo({ nome, onFim, perguntas }) {
   }, []);
 
   function responder(tipo, licao){
-    if (tipo === 'correta') setPontos(p => p + 10);
+    if (tipo === 'certa') setPontos(p => p + 10);
     else if (tipo === 'neutra') setPontos(p => p + 2);
 
     setFeedback({tipo: tipo, licao: licao});
+
     setTimeout(() => {
       setFeedback(null);
       if (indice < 4) setIndice(i => i + 1);
-      else onFim(pontos + (tipo === 'correta' ? 10 : tipo === 'neutra' ? 2 : 0));
+      else onFim(pontos + (tipo === 'certa' ? 10 : tipo === 'neutra' ? 2 : 0));
     }, 5000);
   };
 

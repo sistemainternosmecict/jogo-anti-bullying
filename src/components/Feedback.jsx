@@ -5,7 +5,7 @@ const COR_BASICA = "#2a7951ff";
 const CustomFeedback = styled.p`
   color: white;
   font-weight: bold;
-  background-color: ${(props) => props.cor || COR_BASICA};
+  background-color: ${($props) => $props.cor || COR_BASICA};
   padding: 32px;
   font-size: 2em;
   border-radius: 8px;
